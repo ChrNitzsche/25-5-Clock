@@ -1,0 +1,232 @@
+@font-face {
+    font-family: "Digital-7mono";
+    src: url(src/fonts/digital-7_mono.ttf) format("truetype");
+    font-display: block;
+}
+
+.sessions {
+    /* border: 2px solid turquoise; */
+    width: 200px;
+    margin: 0 0 0 0;
+    padding: 0 10px 0 10px;
+    justify-content: center;
+    color: aquamarine;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 0 30px 0 30px;
+    box-shadow: 0 0 10px thistle;
+}
+
+.sessionLabels {
+    /* border: 2px solid purple; */
+    font-size: 35px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sessionsButtons svg {
+    /* border: 1px solid pink; */
+    width: 50px;
+    height: 66px;
+    fill: darkslategray;
+}
+
+.sessionsLengthLabels {
+    /* border: 1px solid yellow; */
+    font-size: 55px;
+    vertical-align: top;
+    font-family: Digital-7mono;
+    text-align: center;
+    min-width: 50px;
+    align-self: flex-end;
+}
+
+.sessionsButtons {
+    /* border: 2px solid red; */
+    margin: 0;
+    flex-direction: row;
+    align-self: center;
+    width: 20px;
+    display: flex;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+svg {
+    fill: thistle;
+}
+
+svg:hover {
+    fill: rgb(185, 108, 185);
+}
+
+.sessionsButtons svg:hover {
+    /* box-shadow: 0 0 20px 0 aqua; */
+    fill: rgb(0, 255, 255);
+    filter: drop-shadow(0px 0px 7px rgb(0 255 255));
+}
+
+svg:active {
+    transform: scale(.95);
+}
+
+#container {
+    /* border: 3px solid yellow; */
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    height: 70vh;
+    align-items: center;
+    flex: content;
+    width: 100%;
+    flex-direction: column;
+}
+
+#containerClock {
+    /* border: 2px solid rgb(4, 196, 196); */
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+    flex: content;
+    width: 302px;
+    max-height: 300px;
+    height: 300px;
+    flex-direction: column;
+    position: relative;
+}
+
+#containerCtrl {
+    /* border: 1px solid rgb(115, 255, 59); */
+    position: absolute;
+    bottom: 0;
+    height: 45%;
+    align-items: center;
+    display: flex;
+    width: 110px;
+    justify-content: space-between;
+}
+
+#timerDiv {
+    /* border: 3px solid red; */
+    position: absolute;
+    width: 300px;
+    vertical-align: middle;
+    align-items: center;
+    z-index: -1;
+}
+
+#containerLabels {
+    /* border: 2px solid rgb(241, 207, 255); */
+    height: 180px;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    width: 240px;
+    color: rgb(75, 75, 75);
+}
+
+#timer-label {
+    /* border: 2px solid rgb(105, 0, 146); */
+    position: absolute;
+    font-size: 40px;
+    margin: 0 0 0 0;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0px 0px 12px rgb(0, 0, 0);
+    /* color: lawngreen; */
+    top: -18px;
+}
+
+#time-left {
+    /* border: 2px solid rgb(209, 91, 255); */
+    top: 50%;
+    position: absolute;
+    font-size: 100px;
+    margin: 0;
+    font-family: Digital-7mono;
+    width: 100%;
+    text-shadow: 0px 0px 12px rgb(0, 0, 0);
+    text-align: center;
+    transform: translateY(-50%);
+}
+
+.breakTime {
+    color: rgb(56, 30, 56);
+}
+
+.sessionTime {
+    color: thistle;
+}
+
+.lastSeconds {
+    color: red;
+}
+
+.blink {
+    animation: blink 1s linear infinite;
+}
+
+.warnTime {
+    color: gold;
+}
+
+@keyframes blink {
+    70% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 1;
+    }
+}
+
+#innerCircle,
+#circle {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+
+#circle {
+    /* border: 3px solid yellowgreen; */
+    z-index: 2;
+}
+
+#innerCircle {
+    z-index: 1;
+}
+
+.ldBar-label {
+    display: none;
+}
+
+body {
+    background-color: rgb(32, 32, 32);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#containerSettings {
+    /* border: 2px solid blue; */
+    position: fixed;
+    bottom: 10px;
+    display: inline-flex;
+}
+
+.displayNone button {
+    width: 100px;
+    margin: 2px 0px 2px 0px;
+}
+
+.displayNone {
+    display: none;
+}

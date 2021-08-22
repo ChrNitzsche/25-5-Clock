@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCC #3.5 _ 25+5 Clock</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/js/loading-bar.min.css" />
+    <link href="src/fonts/fonts.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <button type="button" onclick="schneller()">Beschleunigen!</button>
+    <div id="container">
+        <div id="containerClock">
+            <div id="timerDiv">
+                <div id="circle"></div>
+                <div id="InnerArc" data-stroke="data:ldbar/res,gradient(0,1,#9df,#9fd,#df9,#fd9)"></div>
+            </div>
+            <div id="containerLabels">
+                <div id="timer-label"></div>
+                <div id="time-left"></div>
+            </div>
+            <div id="containerCtrl">
+                <svg id="start_stop1" onclick="startStopButtonClick()" width="48" height="48" class="bi bi-play-circle-fill" viewbox="0 0 16 16">
+                    <path id="svg_start"></path>
+                </svg>
+                <svg id="reset1" onclick="btnReset()" width="48" height="48" viewbox="0 0 16 16">
+                    <path id="svg_reset" d=""></path>
+                </svg>
+            </div>
+        </div>
+
+
+        <div id="containerSettings">
+
+
+            <div class="sessions" id="session">
+
+                <div class="sessionLabels" id="session-label">Session</div>
+
+                <div class="sessionsButtons">
+                    <svg id="session-decrement5" onclick="handleBtnClick('s/')" viewbox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                      </svg>
+                    <svg id="session-decrement1" onclick="handleBtnClick('s-')" viewbox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"></path>
+                    </svg>
+
+                    <div class="sessionsLengthLabels" id="session-length"></div>
+
+                    <svg id="session-increment1" onclick="handleBtnClick('s+')" viewbox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"></path>
+                    </svg>
+                    <svg id="session-increment5" onclick="handleBtnClick('s*')" viewbox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                      </svg>
+                </div>
+
+            </div>
+
+            <div class="sessions" id="break">
+
+                <div class="sessionLabels" id="break-label">Break</div>
+
+                <div class="ctrlButtons">
+                    <div class="sessionsButtons">
+                        <svg id="break-decrement5" onclick="handleBtnClick('b/')" viewbox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                            <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                          </svg>
+                        <svg id="break-decrement1" onclick="handleBtnClick('b-')" viewbox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"></path>
+                        </svg>
+
+                        <div class="sessionsLengthLabels" id="break-length"></div>
+
+                        <svg id="break-increment1" onclick="handleBtnClick('b+')" viewbox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"></path>
+                            <defs><filter id="glow" width="200%" height="200%" x="-50%" y="-50%"></filter></defs>
+                        </svg>
+                        <svg id="break-increment5" onclick="handleBtnClick('b*')" viewbox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                          </svg>
+                    </div>
+                </div>
+
+            </div>
+
+            <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" preload="auto"></audio>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js" integrity="sha512-6kvhZ/39gRVLmoM/6JxbbJVTYzL/gnbDVsHACLx/31IREU4l3sI7yeO0d4gw8xU5Mpmm/17LMaDHOCf+TvuC2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript" src="src/js/loading-bar.js"></script>
+    <script src="index.js"></script>
+    <div class="displayNone">
+        <button type="button" id="start_stop" onclick="startStopButtonClick()">Start/Stop</button>
+        <button type="button" id="reset" onclick="btnReset()">Reset</button><br>
+        <button type="button" id="session-increment" onclick="handleBtnClick('s+')">Session +1</button>
+        <button type="button" id="session-decrement" onclick="handleBtnClick('s-')">Session -1</button><br>
+        <button type="button" id="break-increment" onclick="handleBtnClick('b+')">Break +1</button>
+        <button type="button" id="break-decrement" onclick="handleBtnClick('b-')">Break -1</button>
+    </div>
+
+</body>
+
+</html>

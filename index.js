@@ -31,6 +31,7 @@ $(document).ready(function() {
         animationStartValue: 0.0,
         emptyFill: "rgb(75, 75, 75)",
         fill: { image: 'src/img/radial.png' },
+        // fill: { gradient: ["blue", "red", "orange", "yellow", "green", "blue", "indigo", "violet"], gradientAngle: Math.PI / 4 },
         thickness: 15
     });
     $('#svg_reset').attr('d', svg_resetBtn);
@@ -166,7 +167,7 @@ function calculateTimeLeft(min, sek, rest = 0) {
             outerArcOutput(((timer_nowTime - timer_startTime) / 60000) % 2);
 
             // Abfrage, wann Timer zu ende & neuer Timer!
-            if (timer_state_timeLeft <= 1 || fixfix == true) {
+            if (timer_state_timeLeft <= 1) {
                 timer_state_isSession = !timer_state_isSession;
                 setTimerLabel()
                 document.getElementById('beep').play();

@@ -5,9 +5,8 @@
 }
 
 .sessions {
-    /* border: 2px solid turquoise; */
+    border: solid 1px turquoise;
     width: 200px;
-    margin: 0 0 0 0;
     padding: 0 10px 0 10px;
     justify-content: center;
     color: aquamarine;
@@ -34,19 +33,17 @@
 .sessionsLengthLabels {
     /* border: 1px solid yellow; */
     font-size: 55px;
-    vertical-align: top;
+    vertical-align: middle;
     font-family: Digital-7mono;
     text-align: center;
     min-width: 50px;
-    align-self: flex-end;
+    align-self: center;
 }
 
 .sessionsButtons {
     /* border: 2px solid red; */
-    margin: 0;
     flex-direction: row;
     align-self: center;
-    width: 20px;
     display: flex;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
@@ -77,7 +74,6 @@ svg:active {
     display: flex;
     justify-content: center;
     vertical-align: middle;
-    height: 70vh;
     align-items: center;
     flex: content;
     width: 100%;
@@ -90,19 +86,19 @@ svg:active {
     justify-content: center;
     vertical-align: middle;
     align-items: center;
-    flex: content;
+    /* flex: content; */
     width: 302px;
-    max-height: 300px;
+    /* max-height: 300px; */
     height: 300px;
     flex-direction: column;
     position: relative;
+    margin-top: 50px;
 }
 
 #containerCtrl {
     /* border: 1px solid rgb(115, 255, 59); */
-    position: absolute;
-    bottom: 0;
-    height: 45%;
+    position: relative;
+    bottom: 10px;
     align-items: center;
     display: flex;
     width: 110px;
@@ -130,7 +126,6 @@ svg:active {
 
 #timer-label {
     /* border: 2px solid rgb(105, 0, 146); */
-    position: absolute;
     font-size: 40px;
     margin: 0 0 0 0;
     width: 100%;
@@ -138,13 +133,11 @@ svg:active {
     vertical-align: middle;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-shadow: 0px 0px 12px rgb(0, 0, 0);
-    /* color: lawngreen; */
     top: -18px;
 }
 
 #time-left {
     /* border: 2px solid rgb(209, 91, 255); */
-    top: 50%;
     position: absolute;
     font-size: 100px;
     margin: 0;
@@ -152,7 +145,9 @@ svg:active {
     width: 100%;
     text-shadow: 0px 0px 12px rgb(0, 0, 0);
     text-align: center;
-    transform: translateY(-50%);
+    /* transform: translateY(5%); */
+    /* padding-top: 7px; */
+    height: 100%;
 }
 
 .breakTime {
@@ -216,10 +211,10 @@ body {
 }
 
 #containerSettings {
-    /* border: 2px solid blue; */
-    position: fixed;
-    bottom: 10px;
     display: inline-flex;
+    margin-top: 60px;
+    position: relative;
+    height: 113px;
 }
 
 .displayNone button {
@@ -228,5 +223,30 @@ body {
 }
 
 .displayNone {
+    /* durch diese Klasse von Buttons funktioniert die Testroutine, selbe Funktionalität ansonsten wie die gestalteten Buttons */
     display: none;
+}
+
+@media (max-width: 520px) {
+    .sessions {
+        margin: 0 15px 0 15px;
+        width: 120px;
+    }
+    .sessionLabels {
+        font-size: 25px;
+    }
+    .sessionsLengthLabels {
+        font-size: 40px;
+        align-self: center;
+    }
+}
+
+@media (max-height: 530px) {
+    .sessions {
+        margin: 0 200px 0 200px;
+    }
+    #containerSettings {
+        position: absolute;
+        bottom: auto;
+    }
 }
